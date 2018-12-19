@@ -1,2 +1,7 @@
-# CEPs
-Cyano Enhancement Proposals
+==Cyano Enhancement Proposals==
+
+Cyano Enhancement Proposals (CEPs) describe standards for the Cyano, including core mobile dAPIs protocol specifications.
+
+==Contributing==
+
+Clone the repository and add your CEP to it. 
