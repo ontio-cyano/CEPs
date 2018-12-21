@@ -561,16 +561,15 @@ response:
 }
 </pre>
 
-===Provider code example===
+===Integration Document===
 
-Android: [[GameWebActivity.java]]
+Android: [[https://github.com/ontio-cyano/cyano-android]]
 
-Ios:  [[DAppViewController.m]]
+Ios:  [[https://github.com/ontio-cyano/cyano-ios]]
 
-DAPP:
+Integration Document: [[https://github.com/ontio-cyano/integration-docs]]
 
 ===Scenario Example===
-
 
 
 ==== Scenario 1 and 2: Split login and invoke smart contract ====
