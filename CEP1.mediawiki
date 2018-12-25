@@ -1,6 +1,6 @@
 <pre>
   CEP: 1
-  Title: dAPI for Mobile
+  Title: dAPI for Mobile dApps and communication protocol for dAPI providers
   Author: Josh Chow <josh_chow@163.com>, Min Xiao, Ning Hu, Lingxiao Su, Dashuang Wang .
   Type: Standard
   Status: POC
