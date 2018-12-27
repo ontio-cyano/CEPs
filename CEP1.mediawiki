@@ -286,7 +286,7 @@ response:
 	"version": "v1.0.0",
 	"error": 0,
 	"desc": "SUCCESS",
-	"result": "tx hash"
+	"result": "tx hash"   // return hexstring if is preExec
 }
 
 </pre>
