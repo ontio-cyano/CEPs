@@ -217,7 +217,7 @@ Invoke Smart Contract params
 if user has logined. only method and parameters, dont need signature, Provider help make transaction:
 <pre>
 {
-	"action": "invoke",
+	"action": "invoke",  // if action is invokeRead, prepare execution smart contract
 	"version": "v1.0.0",
 	"params": {
 		"login": true,
@@ -254,8 +254,7 @@ if user has logined. only method and parameters, dont need signature, Provider h
 			}],
 			"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
 			"gasLimit": 20000,
-			"gasPrice": 500,
-            "preExec": false
+			"gasPrice": 500
 		}
 	}
 }
