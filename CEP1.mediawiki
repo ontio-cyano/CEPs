@@ -227,9 +227,8 @@ if user has logined. only method and parameters, dont need signature, Provider h
 		"invokeConfig": {
 			"autosign": true,
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
-			"functions": [{
+			"function": {
 				"operation": "method name",
-				"preExec": false,
 				"args": [{
 					"name": "arg0-list",
 					"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
@@ -252,14 +251,11 @@ if user has logined. only method and parameters, dont need signature, Provider h
 					"name": "arg2-str",
 					"value": "String:test"
 				}]
-			}],
+			},
+            "preExec": false,
 			"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
 			"gasLimit": 20000,
-			"gasPrice": 500,
-			"signature": [{
-				"m": 1,
-				"signers": ["AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"]
-			}]
+			"gasPrice": 500
 		}
 	}
 }
