@@ -217,6 +217,20 @@ The same to login. Signature Message params:
 }
 </pre>
 
+<pre>
+{
+	"action": "signMessage",
+	"version": "v1.0.0",
+	"params": {
+		"type": "ontid or account",
+		"message": "helloworld",
+		"expire": 1546415363, // QR Code expire time
+		"callback": "http://127.0.0.1:80/login/callback"
+	}
+}
+
+</pre>
+
 ====Invoke Smart Contract====
 
 Invoke Smart Contract params
