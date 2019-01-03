@@ -8,7 +8,7 @@
 </pre>
 
 ==Abstract==
-The CEP-1 Proposal is a standard interface like dAPI in Mobile that support dApp wake-up provider and login by scanning QR code.
+The CEP-1 Proposal is a standard interface like dAPI in Mobile that support dApp wake-up wallet, login by scanning QR code and open DApp in wallet. This protocol can be extended to support more action.
 
 
 
