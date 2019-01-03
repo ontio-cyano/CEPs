@@ -8,56 +8,56 @@
 </pre>
 
 ==Abstract==
-The CEP-1 Proposal is a standard interface like dAPI in Mobile. Support dApp wake up Provider and Provider scan QR code.
+The CEP-1 Proposal is a standard interface like dAPI in Mobile that support dApp wake-up provider and login by scanning QR code.
 
 
 
 
 
 ==Motivation==
-dAPI currently only supports chrome extension and desktop, which cannot be used on the mobile side, Unable to meet a large number of mobile DAPP.
+Currently, dAPI is only available in the chrome extension and desktop. It is not available in the Mobile side so that a large number of mobile DApps cannot use dAPI.
 
 
 
-There are three Scenario will use in Mobile dApp
+There are three application scenarios in Mobile dApp
 
-=== Scenario 1: Provider scan QR code  ===
+=== Scenario 1: Provider scans a QR code  ===
 
-Web generate  QR code, Provider scans the QR code for login and invoke smart contract request.
+Web generates a QR code firstly, and then provider scans the QR code for login and invoke a smart contract request.
 
-=== Scenario 2:  DApp wakeup Provider ===
+=== Scenario 2:  DApp wake-up provider ===
 
-The DApp wakeup Provider for login authorization and invoke smart contract request.
+The DApp wake-up provider requests for login authorization and invoke a smart contract request.
 
-=== Scenario 3: Provider open DApp ===
+=== Scenario 3: Provider opens DApp ===
 
-H5 dApp is embedded in Provider. Open H5 dApp for login authorization and H5 dApp invoke smart contract request.
+H5 dApp is embedded in provider. Opening H5 dApp for login authorization and H5 dApp invokes a smart contract request.
 
 
 ==Specification==
 
 The main interface of dApi mobile:
 
-* getAccount or getIdentity: DApp getAccount or getIdentity from Provider
-* Login: DApp send login message, Provider response Signed message.
-* Invoke smart contract: DApp send invoke request. Provider signature and send to MainNet.
-* Transfer ONT/ONG: the same to invoke smart contract.
-* Ontid: registry or update attribute.
+* getAccount or getIdentity: DApp getAccount and getIdentity from the provider
+* Login: a DApp sends a login message, and the provider responses a signed message.
+* Invoke a smart contract: a DApp sends a invoke request. The provider signs and sends it to the MainNet.
+* Transfer ONT/ONG: the same to invoke a smart contract.
+* Ontid: registration or update attribute.
 
 
 
 === Flow of the Protocol===
 
 
-The Provider registers the intercept protocol (URL Scheme, appLink) in Mobile for the H5 DApp can wakeup the Wallet App.
+The provider registers the intercept protocol (URL Scheme, appLink) in Mobile for a H5 DApp that can wake up the Wallet App.
 
-DApp calls this protocol and send data to Provider. The request format of data is structured as:
+A DApp calls this protocol and sends data to the Provider. The request format of data is structured as:
 
 ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 
 ====  Get Account or Identity====
 
-In Scenario 3: Provider open DApp. if DApp dont need user login:
+In Scenario 3: A provider opens a DApp. if DApp does not need user login:
 
 [[Image:images/get-account-or-identity.png|get-account-or-identity]]
 
@@ -66,13 +66,13 @@ In Scenario 3: Provider open DApp. if DApp dont need user login:
 
 [[Image:images/login.png|login]]
 
-ontid login if ontid not registry:
+ontid login if ontid is not registered:
 
 [[Image:images/login-use-ontid.png|login]]
 
-====  Invoke Smart Contract ====
+====  Invoke a Smart Contract ====
 
-Provider can add Provider owner signature for distinguish who send transaction.
+Provider can add Provider owner signature for distinguishing the sender.
 
 [[Image:images/invoke.png|invoke]]
 
@@ -231,7 +231,7 @@ The same to login. Signature Message params:
 
 </pre>
 
-====Invoke Smart Contract====
+====Invoke a Smart Contract====
 
 Invoke Smart Contract params
 {
@@ -241,7 +241,7 @@ Invoke Smart Contract params
     callback     string   // send tx hash to dApp server
 }
 
-if user has logined. only method and parameters, dont need signature, Provider help make transaction:
+If user has logined, only method and parameters will be required and the signature will no longer be required. Provider helps make transaction:
 <pre>
 {
 	"action": "invoke",  // other action is invokeRead, invokePasswordFree
@@ -288,7 +288,7 @@ if user has logined. only method and parameters, dont need signature, Provider h
 
 or
 
-if user didn't login:
+If user didn't login:
 
 <pre>
 {
@@ -301,7 +301,7 @@ if user didn't login:
 }
 
 </pre>
-then Provider post Address to DApp backend, DApp backend return  signedTx
+then the provider post the address to DApp backend, DApp backend return  signedTx
 
 response:
 
@@ -416,87 +416,88 @@ response:
 
 === DApp front end ===
 
-=====Scenario 2: Wakeup Provider for login DApp =====
+=====Scenario 2: Wakeup provider for DApp login =====
 
-1. wakeup Provider: send message for user signature
-
-
-
-2. Provider send message, publicKey and signature to callback url.
+1. Wake-up Provider: send a message for user signature
 
 
 
-=====Scenario 2: Wakeup Provider for invoke smartcontract=====
-
-1. wakeup Provider: send dApp owner signed transaction
+2. Provider sends a message, public key and signature to callback url.
 
 
 
-then Provider post Address to DApp backend, DApp backend return  signedTx
+=====Scenario 2: Wakeup provider for invoke a smart contract=====
+
+1. Wakeup provider: send dApp owner signed transaction
 
 
 
-=== DApp back end ===
+Then provider posts the address to DApp backend, DApp backend returns a signedTx.
+
+
+
+=== DApp backend ===
 
 =====Scenario 1 and 2: Login Api =====
 
-reveive signed message ,verify message, send verify result to front end
+Receive the signed message ,verify message, send verify result from the front end.
 
 =====  Transaction make and signature=====
 
-* if user logined, make and signature transaction for front end
+* if user has logined, make and sign the transaction for the front end
 
-* if user not logined, DApp backend received Provider post Address, response  signedTx to Provider
+* if user has not logined, DApp backend needs to receive an address a provider posts, and responses signedTx to provider.
 
 ===== Synchronize transction events =====
 
-synchronize transction events of Smartcontract
+Synchronize transction events of a smart contract
 
 
 === Provider ===
 
-Provider support receive wakeup form Dapp and scan QrCode of DApp website.
+Provider supports receiving wake-up from Dapps and scanning QrCode of DApp website.
 
-====Scenario 1: Scan login message QrCode====
 
-1. scan message
+====Scenario 1: Scan QrCode of login message====
 
-2. verify dApp owner signature
+1. Scan message
+
+2. Verify dApp owner signature
 
 3. User add signature in Provider
 
-4. Provider send message, publicKey and signature to callback url.
+4. Provider sends message, public key and signature to callback url.
 
 
 
 ====Scenario 1: Scan transaction QrCode====
 
-1. scan transaction
+1. Scan transaction
 
-2. verify dApp owner signature
+2. Verify dApp owner signature
 
-3. add user signature
+3. Add user signature
 
-4. send to blockchain
-
-
+4. Send to blockchain
 
 
 
 
-====Scenario 3: H5 DApp login after be opened in Provider====
+
+
+====Scenario 3: H5 DApp login after being opened in provider====
 
 1. H5 DApp: send message for user signature
 
 
 
-2. Provider send message, publicKey and signature to H5 DApp.
+2. Provider sends message, public key and signature to H5 DApp.
 
 
 
-====Scenario 3: H5 DApp invoke smartcontract====
+====Scenario 3: H5 DApp invokes a smart contract====
 
-the message the same to Scan transaction QrCode
+The message is the same to the one that scans transaction QrCode
 
 
 ===Error code===
