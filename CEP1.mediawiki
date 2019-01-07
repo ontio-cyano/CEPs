@@ -8,16 +8,7 @@
 </pre>
 
 ==Abstract==
-The CEP-1 Proposal is a standard interface like dAPI in Mobile that support dApp wake-up wallet, login by scanning QR code and open DApp in wallet. This protocol can be extended to support more action.
-
-
-
-
-
-==Motivation==
-Currently, dAPI is only available in the chrome extension and desktop. It is not available in the Mobile side so that a large number of mobile DApps cannot use dAPI.
-
-
+The CEP-1 Proposal is a standard interface as dAPI in Mobile that support dApp wake-up wallet, login by scanning QR code and open DApp in wallet. This protocol can be extended to support more action.
 
 There are three application scenarios in Mobile dApp
 
@@ -32,6 +23,13 @@ The DApp wake-up provider requests for login authorization and invoke a smart co
 === Scenario 3: Provider opens DApp ===
 
 H5 dApp is embedded in provider. Opening H5 dApp for login authorization and H5 dApp invokes a smart contract request.
+
+
+
+==Motivation==
+Currently, [[dAPI for chrome:https://github.com/ontio/ontology-dapi]] is only available in the chrome extension and desktop. It is not available in the Mobile side so that a large number of mobile DApps cannot use dAPI.
+
+
 
 
 ==Specification==
