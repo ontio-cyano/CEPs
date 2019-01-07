@@ -27,7 +27,7 @@ H5 dApp is embedded in provider. Opening H5 dApp for login authorization and H5 
 
 
 ==Motivation==
-Currently, [[dAPI for chrome:https://github.com/ontio/ontology-dapi]] is only available in the chrome extension and desktop. It is not available in the Mobile side so that a large number of mobile DApps cannot use dAPI.
+Currently, [[https://github.com/ontio/ontology-dapi | dAPI for chrome]] is only available in the chrome extension and desktop. It is not available in the Mobile side so that a large number of mobile DApps cannot use dAPI.
 
 
 
