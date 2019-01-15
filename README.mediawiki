@@ -4,7 +4,7 @@ Cyano Enhancement Proposals (CEPs) describe standards for the Cyano, including c
 
 ==Contributing==
 
-First review [[CEPS/CEP1.mediawiki|CEP-1]]. Then clone the repository and add your CEP to it. There is a [[CEP-X.mediawiki|template CEP here]]. Then submit a [https://github.com/ontio-cyano/CEPs/pulls Pull Request] to this repository.
+First review [[CEPS/CEP1.mediawiki|CEP1]]. Then clone the repository and add your CEP to it. There is a [[CEP-X.mediawiki|template CEP here]]. Then submit a [https://github.com/ontio-cyano/CEPs/pulls Pull Request] to this repository.
 
 ==Table of Contents==
 
