@@ -4,21 +4,21 @@
   Author: Josh Chow <josh_chow@163.com>, Min Xiao, Ning Hu, Lingxiao Su, Dashuang Wang .
   Type: Standard
   Status: POC
-  Created: 2018-12-6
+  Created: 06/12/2018
 </pre>
 
 ==Abstract==
-The CEP-1 Proposal is a standard interface as dAPI in Mobile that support dApp wake-up wallet, login by scanning QR code and open DApp in wallet. This protocol can be extended to support more action.
+The CEP-1 Proposal is a mobile dAPI standard interface that supports dApp wake-up wallet, login by scanning QR code, and open dApp in wallet. This protocol can be extended to support more actions.
 
-There are three application scenarios in Mobile dApp
+There are three mobile dApp scenarios:
 
 === Scenario 1: Provider scans a QR code  ===
 
-Web generates a QR code firstly, and then provider scans the QR code for login and invoke a smart contract request.
+Web generates a QR code and then provider scans the QR code to login and invoke a smart contract request.
 
-=== Scenario 2:  DApp wake-up provider ===
+=== Scenario 2:  dApp wake-up provider ===
 
-The DApp wake-up provider requests for login authorization and invoke a smart contract request.
+The dApp wake-up provider requests for login authorization and invokes a smart contract request.
 
 === Scenario 3: Provider opens DApp ===
 
@@ -27,35 +27,35 @@ H5 dApp is embedded in provider. Opening H5 dApp for login authorization and H5 
 
 
 ==Motivation==
-Currently, [[https://github.com/ontio/ontology-dapi | dAPI for chrome]] is only available in the chrome extension and desktop. It is not available in the Mobile side so that a large number of mobile DApps cannot use dAPI.
+Currently, [[https://github.com/ontio/ontology-dapi | dAPI for Chrome]] is only available as a desktop Chrome extension. It is not available for mobile, so a large number of mobile dApps cannot use a dAPI.
 
 
 
 
-==Specification==
+==Specifications==
 
-The main interface of dApi mobile:
+The main dAPI mobile interface:
 
-* getAccount or getIdentity: DApp getAccount and getIdentity from the provider
-* Login: a DApp sends a login message, and the provider responses a signed message.
-* Invoke a smart contract: a DApp sends a invoke request. The provider signs and sends it to the MainNet.
+* getAccount or getIdentity: dApp getAccount and getIdentity from the provider.
+* Login: A dApp sends a login message, and the provider responses a signed message.
+* Invoke a smart contract: A dApp sends an invoke request. The provider signs and sends it to the MainNet.
 * Transfer ONT/ONG: the same to invoke a smart contract.
-* Ontid: registration or update attribute.
+* Ontid: Registration or update attribute.
 
 
 
 === Flow of the Protocol===
 
 
-The provider registers the intercept protocol (URL Scheme, appLink) in Mobile for a H5 DApp that can wake up the Wallet App.
+The provider registers the intercept protocol (URL Scheme, appLink) in mobile for a H5 dApp that can wake up the wallet app.
 
-A DApp calls this protocol and sends data to the Provider. The request format of data is structured as:
+A dApp calls this protocol and sends data to the provider. The request format of data is structured as:
 
 ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 
 ====  Get Account or Identity====
 
-In Scenario 3: A provider opens a DApp. if DApp does not need user login:
+In Scenario 3: A provider opens a dApp. If the dApp does not need a user login:
 
 [[Image:images/get-account-or-identity.png|get-account-or-identity]]
 
@@ -64,13 +64,13 @@ In Scenario 3: A provider opens a DApp. if DApp does not need user login:
 
 [[Image:images/login.png|login]]
 
-ontid login if ontid is not registered:
+ONT ID login if ONT ID is not registered:
 
 [[Image:images/login-use-ontid.png|login]]
 
 ====  Invoke a Smart Contract ====
 
-Provider can add Provider owner signature for distinguishing the sender.
+Provider can add owner signature to distinguish the sender.
 
 [[Image:images/invoke.png|invoke]]
 
@@ -79,7 +79,7 @@ Provider can add Provider owner signature for distinguishing the sender.
 
 === Protocol data format ===
 
-request message
+Request message
 <pre>
 {
     action	string   // action
@@ -88,7 +88,7 @@ request message
     params      object   // action parameter
 }
 </pre>
-response message
+Response message
 <pre>
 {
     action    string   // action
@@ -133,7 +133,7 @@ or
 </pre>
 
 
-response:
+Response:
 
 <pre>
 {
@@ -148,7 +148,7 @@ response:
 
 ====Login====
 
-login params
+Login params
 
 <pre>
 {
@@ -161,7 +161,7 @@ login params
 }
 </pre>
 
-request example:
+Request example:
 
 <pre>
 {
@@ -180,7 +180,7 @@ request example:
 
 </pre>
 
-post to callback:
+Post to callback:
 
 <pre>
 {
@@ -197,7 +197,7 @@ post to callback:
 }
 </pre>
 
-response from callback:
+Response from callback:
 
 <pre>
 {
@@ -212,7 +212,7 @@ response from callback:
 
 ====Signature Message====
 
-The same to login. Signature Message params:
+The same to login. Signature message params:
 
 <pre>
 {
@@ -240,15 +240,17 @@ The same to login. Signature Message params:
 
 ====Invoke a Smart Contract====
 
-Invoke Smart Contract params
+Invoke smart contract params
+<pre>
 {
     login         bool    // optional , logined or not
     message      string   // message show in Provider, optional
     invokeConfig  long    // invoke config parameter
     callback     string   // send tx hash to dApp server
 }
+</pre>
 
-If user has logined, only method and parameters will be required and the signature will no longer be required. Provider helps make transaction:
+If the user has logged in, only method and parameters will be required and the signature will no longer be required. Provider helps make a transaction:
 <pre>
 {
 	"action": "invoke",  // other action is invokeRead, invokePasswordFree
@@ -296,7 +298,7 @@ If user has logined, only method and parameters will be required and the signatu
 
 or
 
-If user didn't login:
+If user did not login:
 
 <pre>
 {
@@ -310,9 +312,9 @@ If user didn't login:
 }
 
 </pre>
-then the provider post the address to DApp backend, DApp backend return  signedTx
+Then the provider posts the address to the dApp backend and the dApp backend returns signedTx.
 
-response:
+Response:
 
 <pre>
 {
@@ -365,7 +367,7 @@ response:
 
 </pre>
 
-response:
+Response:
 
 <pre>
 {
@@ -414,7 +416,7 @@ response:
 
 </pre>
 
-response:
+Response:
 
 <pre>
 {
@@ -428,51 +430,51 @@ response:
 }
 </pre>
 
-=== DApp front end ===
+=== dApp front-end ===
 
-=====Scenario 2: Wakeup provider for DApp login =====
+=====Scenario 2: Wake-up provider for dApp login =====
 
-1. Wake-up Provider: send a message for user signature
+1. Wake-up Provider: Send a message for user signature
 
 
 
-2. Provider sends a message, public key and signature to callback url.
+2. Provider sends a message, public key, and signature to callback url.
 
 
 
 =====Scenario 2: Wakeup provider for invoke a smart contract=====
 
-1. Wakeup provider: send dApp owner signed transaction
+1. Wakeup provider: Send dApp owner signed transaction
 
 
 
-Then provider posts the address to DApp backend, DApp backend returns a signedTx.
+Then provider posts the address to dApp back-end and dApp back-end returns a signedTx.
 
 
 
-=== DApp backend ===
+=== dApp back-end ===
 
-=====Scenario 1 and 2: Login Api =====
+=====Scenario 1 and 2: Login API =====
 
-Receive the signed message ,verify message, send verify result from the front end.
+Receive the signed message, verify message, and send verify result from the front-end.
 
-=====  Transaction make and signature=====
+=====  Transaction and signature=====
 
-* if user has logined, make and sign the transaction for the front end
+* If the user has logged in, make and sign the transaction for the front-end.
 
-* if user has not logined, DApp backend needs to receive an address a provider posts, and responses signedTx to provider.
+* If user has not logged in, the dApp back-end needs to receive an address a provider posts, and respond a signedTx to the provider.
 
 ===== Synchronize transction events =====
 
-Synchronize transction events of a smart contract
+Synchronize smart contract transction events
 
 
 === Provider ===
 
-Provider supports receiving wake-up from Dapps and scanning QrCode of DApp website.
+Provider supports receiving wake-up from dApps and scanning QR codes from the dApp website.
 
 
-====Scenario 1: Scan QrCode of login message====
+====Scenario 1: Scan QR code of login message====
 
 1. Scan message
 
@@ -499,19 +501,19 @@ Provider supports receiving wake-up from Dapps and scanning QrCode of DApp websi
 
 
 
-====Scenario 3: H5 DApp login after being opened in provider====
+====Scenario 3: H5 dApp login after being opened in provider====
 
-1. H5 DApp: send message for user signature
-
-
-
-2. Provider sends message, public key and signature to H5 DApp.
+1. H5 dApp: Dend message for user signature
 
 
 
-====Scenario 3: H5 DApp invokes a smart contract====
+2. Provider sends message, public key, and signature to H5 dApp.
 
-The message is the same to the one that scans transaction QrCode
+
+
+====Scenario 3: H5 dApp invokes a smart contract====
+
+The message is the same to the one that scans transaction QR code.
 
 
 ===Error code===
@@ -528,19 +530,19 @@ response example:
 </pre>
 {| border="0" style="border-collapse:collapse"
 | Error Code
-|  description
+|  Description
 |-
 | 0
-| SUCCESS
+| Success
 |-
 | 80001
-| params error
+| Params error
 |-
 | 80002
-| method error
+| Method error
 |-
 | 80003
-| internal error
+| Internal error
 |}
 
 
@@ -572,7 +574,7 @@ System.out.println(acct0.getAddressU160().toBase58());
 </pre>
 
 
-callback  test: POST   http://101.132.193.149:4027/blockchain/v1/common/test-onto-login
+Callback  test: POST   http://101.132.193.149:4027/blockchain/v1/common/test-onto-login
 <pre>
 {
 	"action": "login",
@@ -586,7 +588,7 @@ callback  test: POST   http://101.132.193.149:4027/blockchain/v1/common/test-ont
 }
 </pre>
 
-response:
+Response:
 
 <pre>
 {
@@ -602,9 +604,9 @@ response:
 
 Android: [[https://github.com/ontio-cyano/cyano-android]]
 
-Ios:  [[https://github.com/ontio-cyano/cyano-ios]]
+iOS:  [[https://github.com/ontio-cyano/cyano-ios]]
 
-Integration Document: [[https://github.com/ontio-cyano/integration-docs]]
+Integration document: [[https://github.com/ontio-cyano/integration-docs]]
 
 ===Scenario Example===
 
