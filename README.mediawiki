@@ -5,3 +5,22 @@ Cyano Enhancement Proposals (CEPs) describe standards for the Cyano, including c
 ==Contributing==
 
 Clone the repository and add your CEP to it.
+
+==Table of Contents==
+
+{| class="wikitable sortable" style="width: auto; text-align: center; font-size: smaller; table-layout: fixed;"
+!<nowiki>#</nowiki>
+!Title
+!Author
+!Type
+!Status
+!Ref.
+|-
+| [[CEPS/CEP1.mediawiki|1]]
+| dAPI for Mobile dApps and communication protocol for dAPI providers
+| Ontology team
+| Meta
+| POC
+| -
+
+|}
