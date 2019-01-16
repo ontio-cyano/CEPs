@@ -57,22 +57,22 @@ ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 
 In Scenario 3: A provider opens a dApp. If the dApp does not need a user login:
 
-[[Image:images/get-account-or-identity.png|get-account-or-identity]]
+[[Image:../images/get-account-or-identity.png|get-account-or-identity]]
 
 ====  Login====
 
 
-[[Image:images/login.png|login]]
+[[Image:../images/login.png|login]]
 
 ONT ID login if ONT ID is not registered:
 
-[[Image:images/login-use-ontid.png|login]]
+[[Image:../images/login-use-ontid.png|login]]
 
 ====  Invoke a Smart Contract ====
 
 Provider can add owner signature to distinguish the sender.
 
-[[Image:images/invoke.png|invoke]]
+[[Image:../images/invoke.png|invoke]]
 
 
 
@@ -613,12 +613,12 @@ Integration document: [[https://github.com/ontio-cyano/integration-docs]]
 
 ==== Scenario 1 and 2: Split login and invoke smart contract ====
 
-[[Image:images/split-login-invoke.png|split-login-invoke]]
+[[Image:../images/split-login-invoke.png|split-login-invoke]]
 
 ==== Scenario 1 and 2: Invoke smart contract with login ====
 
-[[Image:images/invoke-with-login.png|invoke-with-login]]
+[[Image:../images/invoke-with-login.png|invoke-with-login]]
 
 ==== Scenario 3 ====
 
-[[Image:images/scenario3.png|scenario3]]
+[[Image:../images/scenario3.png|scenario3]]
