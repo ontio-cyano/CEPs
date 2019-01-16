@@ -4,4 +4,23 @@ Cyano Enhancement Proposals (CEPs) describe standards for the Cyano, including c
 
 ==Contributing==
 
-Clone the repository and add your CEP to it.
+First review [[CEPS/CEP1.mediawiki|CEP1]]. Then clone the repository and add your CEP to it. There is a [[CEP-X.mediawiki|template CEP here]]. Then submit a [https://github.com/ontio-cyano/CEPs/pulls Pull Request] to this repository.
+
+==Table of Contents==
+
+{| class="wikitable sortable" style="width: auto; text-align: center; font-size: smaller; table-layout: fixed;"
+!<nowiki>#</nowiki>
+!Title
+!Author
+!Type
+!Status
+!Ref.
+|-
+| [[CEPS/CEP1.mediawiki|1]]
+| dAPI for Mobile dApps and communication protocol for dAPI providers
+| Ontology team
+| Standard
+| POC
+| -
+
+|}
