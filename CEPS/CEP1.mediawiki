@@ -1,7 +1,7 @@
 <pre>
   CEP: 1
   Title: dAPI for Mobile dApps and communication protocol for dAPI providers
-  Author: Josh Chow <josh_chow@163.com>, Min Xiao, Ning Hu, Lingxiao Su, Dashuang Wang .
+  Author: Josh Chow, Min Xiao, Ning Hu, Lingxiao Su, Dashuang Wang .
   Type: Standard
   Status: POC
   Created: 06/12/2018
@@ -51,7 +51,7 @@ The provider registers the intercept protocol (URL Scheme, appLink) in mobile fo
 
 A dApp calls this protocol and sends data to the provider. The request format of data is structured as:
 
-ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
+ont://com.github.ont?data={the json data}.toString()
 
 ====  Get Account or Identity====
 
