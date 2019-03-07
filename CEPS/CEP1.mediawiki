@@ -51,7 +51,7 @@ The provider registers the intercept protocol (URL Scheme, appLink) in mobile fo
 
 A dApp calls this protocol and sends data to the provider. The request format of data is structured as:
 
-ont://com.github.ont?data={the json data}.toString()
+ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 
 ====  Get Account or Identity====
 
